@@ -1,0 +1,157 @@
+* {
+	font-family: arial, sans-serif;
+	font-size: 9pt;
+}
+
+
+#container{
+	width: 400px;
+	height: auto;
+	margin-left: 20px;
+	/*background-color: green;*/
+	margin: 40px;
+	padding: 20px;
+	outline-width: 1px;
+	outline-color: black;
+	outline-style: solid;
+	overflow: hidden;
+}
+
+#container, #loginaccount{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#flasher{
+	color: red;
+	font-size: 12pt;
+	font-style: italic;
+	font-weight: medium;
+}
+
+#successpage{
+	font-size: 18pt;
+	color: green;
+	text-align:  center;
+	margin-top: 100px;
+}
+
+.form-control{
+	width: 200px;
+}
+
+#fname, .form-control{
+	display: inline-block;
+}
+
+#loginaccount{
+	width: 400px;
+	height: auto;
+	margin-left: 20px;
+	/*background-color: green;*/
+	margin: 40px;
+	padding: 20px;
+	outline-width: 1px;
+	outline-color: black;
+	outline-style: solid;
+	overflow: hidden;
+}
+/*
+#successpage{
+	color: white;
+	margin-top: 40px;
+	padding-top: 50px;
+	vertical-align: top;
+	font-weight: lighter;
+	display: block;
+
+}*/
+
+#topwall{
+	padding-left: 30pt;
+	padding-top: 50pt;
+}
+
+#text1{
+	width: 600pt;
+}
+#poster {
+	margin-left: 500pt;
+}
+#dojo{
+	font-weight: bold;
+	font-size: 14pt;
+	color: black;
+	margin-left: 10pt;
+	margin-top:  10px;
+	
+}
+
+#person{
+	font-size: 12pt;
+	color: black;
+	padding-left: 240pt;
+	padding-top: 10px;
+
+}
+
+#logger{
+	padding-left: 220pt;
+}
+
+#messages {
+	margin-left: 15pt;
+}
+
+#personname{
+	font-size: 16pt;
+	color: black;
+	margin-left: 2px;
+	font-weight: 900;
+}
+
+#personmessage{
+	font-size: 12pt;
+	color: black;
+	margin-left: 25px;
+
+}
+
+#personname span{
+	font-size: 8pt;
+	color: black;
+
+}
+
+#commentwall{
+	margin-left: 40px;
+}
+
+#text2{
+	width: 770px;
+}
+
+#personname2{
+	font-size: 12pt;
+	color: black;
+	margin-left: 35px;
+	font-weight: 900;
+
+}
+
+#personname2 span{
+	font-size: 8pt;
+	color: black;
+
+}
+
+#personcomment{
+	font-size: 10pt;
+	color: black;
+	margin-left: 45px;
+	font-style: italic;
+}
+
+#comment {
+	margin-left: 480pt;
+}

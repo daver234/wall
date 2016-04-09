@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>The Wall</title>
+      <meta name="description" content="WS">
+      
+      <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+   <body>
+    <div>
+      <nav class="navbar navbar-default navbar-fixed-top">
+         <!-- <div class="container"> -->
+            <ul class="nav nav-pills">
+               <li id='dojo'>CodingDogo Wall</li>
+               <li id='person'>Welcome {{session['first_name']}}</li>
+               <li id='logger' role="presentation"><a href="logoff">log off</a></li>
+            </ul>
+         <!-- </div> -->
+      </nav>
+     </div>
+      
+      <div id='topwall'>
+         <form action='/postmessage/message2' method='post'>
+            <h3>Post a message</h3>
+            <textarea id='text1' class="form-control" name="postex" rows="3"></textarea>
+            <input type='hidden' name='action' value="text1">
+            <br>
+            <input type='submit' id='poster' class="btn btn-primary" value='Post a message'>
+          </form> 
+      
+        <div id='messages'>
+           {% for person in theperson: %}
+               <p id='personname'>{{person['first_name']}} {{person['last_name']}} - <span>{{person['created_at']}}</span> </p>
+               <p id='personmessage'>{{person['message']}}</p>
+               <!-- <p> Person messages_id is: {{person['id']}}</p> -->
+           <div id='another'>
+            {% for person2 in pcomments: %}
+            <!-- <p>the person2(pcomments) message_id is: {{person2['messages_id']}} and the person(theperson) ID is: {{person['id']}}</p> -->
+            {% if  person2['messages_id'] == person['id']%}
+                 <p id='personname2'>{{person2['first_name']}} {{person2['last_name']}} - <span>{{person2['created_at']}}</span> </p>
+                 <p id='personcomment'>{{person2['comment']}} messageID: {{person2['messages_id']}}</p>
+                 {% endif %}
+            {% endfor %}
+           </div>
+        
+
+
+         <div id='commentwall'>
+           <form action='/comment' method='post'>
+              <h3>Post a comment</h3>
+              <input type='hidden' name='message_id' value={{person['id']}}>
+              <textarea id='text2' class="form-control" id="comment3" name="commentex" rows="3"></textarea>
+          </div> 
+              <br>
+              <input type='submit' id='comment' class="btn btn-success" value='Post a comment'>
+            </form> 
+           {% endfor %}
+         </div>  
+         
+        </div> <!-- end messages -->
+      </div>  
+   </body>
+   </html>

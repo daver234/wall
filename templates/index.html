@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Registration and Login for The Wall</title>
+      <meta name="description" content="WS">
+      
+      <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+   <body>
+	<div id="container">
+		<p id="flash">{% with messages = get_flashed_messages() %}
+    			{% if messages %}
+      				{% for message in messages %}
+        				<p id='flasher'>{{message}}</p>
+      			{% endfor %}
+    			{% endif %}
+  			{% endwith %}
+  			</p>
+		<h3>Register For A New Wall Account</h3>
+		<form action='/reg' method='post'>
+	            Your First Name:* <input id='fname' class="form-control" type='text' name='first_name' placeholder='Your first name here'>
+	            <br>
+	            <br>
+	            Your Last Name:* <input id='lname' class="form-control" type='text' name='last_name' placeholder='Your last name here'>
+	            <br>
+	            <br>
+	            Your Email:* <input id='email' class="form-control" type='text' name='email' placeholder='Your email here'>
+	            <br>
+	            <br>
+	            Password:* <input id='pwd' class="form-control" type='text' name='password' placeholder='Your password here'>
+	            <br>
+	            <br>
+	            Confirm Password:* <input id='cpwd' class="form-control" type='text' name='pw_confirmation' placeholder='Re-enter password'>
+	            <br>
+	            * = Required Field
+	            <br>
+	            <br>
+	            <input type='submit' id='sub' class="btn btn-lg btn-success" value='Register'>
+	            <br>
+	    </form>
+	    <br>
+	    <form action='/reset'>
+	    	<input type='submit' id='clear' class="btn btn-lg btn-danger" value='Reset All'>
+	    </form>	
+	    <br>      
+	  </div>
+	 <div id='loginaccount'>
+	 	<h3>Login To Your Wall Account</h3>
+	 	{% with login_errors= get_flashed_messages(with_categories=true,category_filter=['login_errors']) %}
+      		{% if login_errors %}
+        		{% for category,error in login_errors %}
+          			<p class='error'>{{ error }}</p>
+        		{% endfor %}
+      		{% endif %}
+    	{% endwith %}
+	 	<form action='/login' method='POST'>
+		    <p>Email adddress: <input type="text" class="form-control" name="email" placeholder="Email address here"></p>
+		    <p>Password: <input type="text"  class="form-control" name="password" placeholder="Password here"></p>
+		    <input type='submit' id='log' class="btn btn-lg btn-primary" value='Login'>
+		</form>
+	 </div>	
+	
+</body>
+</html>		
